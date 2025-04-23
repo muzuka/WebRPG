@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { GameViewComponent,
          ConsoleComponent,
          EditorComponent,
@@ -8,7 +9,8 @@ import { GameViewComponent,
   selector: 'app-root',
   imports: [EditorComponent, 
             GameViewComponent, 
-            ConsoleComponent],
+            ConsoleComponent,
+            FormsModule,],
   templateUrl: `./app.component.html`,
   styleUrls: ['./app.component.css', '../styles.css'],
 })
