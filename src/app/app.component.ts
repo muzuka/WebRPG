@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import { CodeEditorComponent } from "./components/codeeditor.component";
-import { GameViewComponent } from './components/gameview.component';
+import { CodeEditorComponent } from "./components/editor/editor.component";
+import { GameViewComponent } from './components/gameview/gameview.component';
 
 @Component({
   selector: 'app-root',

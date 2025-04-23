@@ -7,6 +7,26 @@ header {
   padding: var(--content-padding);
   box-shadow: 0px 5px 25px var(--shadow-color);
 }
-.content {
-  padding: var(--content-padding);
+
+.main-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   
+  grid-template-rows: 2fr 1fr;             
+  grid-template-areas:
+    "editor  game"
+    "console reference";
+  gap: 8px;                                
+  height: 100vh;                           
+  padding: 8px;                            
 }
+
+.pane {
+  background: #1e1e1e;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.editor    { grid-area: editor; }
+.game      { grid-area: game; }
+.console   { grid-area: console; }
+.reference { grid-area: reference; }
