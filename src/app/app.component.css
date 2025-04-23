@@ -8,6 +8,10 @@ header {
   box-shadow: 0px 5px 25px var(--shadow-color);
 }
 
+h1 {
+  color: white;
+}
+
 .main-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;   
@@ -26,7 +30,7 @@ header {
   overflow: hidden;
 }
 
-.editor    { grid-area: editor; }
-.game      { grid-area: game; }
-.console   { grid-area: console; }
+.editor    { grid-area: editor; background-color: var(--secondary-color); }
+.game      { grid-area: game; background-color: var(--accent-color); }
+.console   { grid-area: console; background-color: var(--primary-color); }
 .reference { grid-area: reference; }

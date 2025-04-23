@@ -1,18 +1,16 @@
 import {Component} from '@angular/core';
-import { CodeEditorComponent } from "./components/editor/editor.component";
-import { GameViewComponent } from './components/gameview/gameview.component';
+import { GameViewComponent,
+         ConsoleComponent,
+         EditorComponent,
+        } from './components';
 
 @Component({
   selector: 'app-root',
-  imports: [CodeEditorComponent, GameViewComponent],
-  template: `
-    <div>
-      <h1>Hello World!</h1>
-      <game-view> </game-view>
-      <editor-view> </editor-view>
-    </div>
-  `,
-  styleUrls: ['./app.component.css'],
+  imports: [EditorComponent, 
+            GameViewComponent, 
+            ConsoleComponent],
+  templateUrl: `./app.component.html`,
+  styleUrls: ['./app.component.css', '../styles.css'],
 })
 export class AppComponent {
   title = 'Homes';
