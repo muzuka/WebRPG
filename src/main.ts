@@ -8,6 +8,7 @@ import { importProvidersFrom }  from '@angular/core';
 import { FormsModule }          from '@angular/forms';
 import { MonacoEditorModule }   from 'ngx-monaco-editor-v2';
 import { provideMonacoEditor } from 'ngx-monaco-editor-v2';
+import { provideHttpClient } from '@angular/common/http';
 
 bootstrapApplication(AppComponent, 
   {providers: [
@@ -15,7 +16,8 @@ bootstrapApplication(AppComponent,
     importProvidersFrom(BrowserModule, FormsModule, MonacoEditorModule.forRoot()),
     provideMonacoEditor({
       baseUrl: '/assets/monaco-editor/vs'
-    })
+    }),
+    provideHttpClient()
   ]}).catch((err) =>
   console.error(err),
 );
