@@ -1,5 +1,5 @@
-import { SimulationService } from 'src/app/services/simulation.service';
-import {Component, Injectable} from '@angular/core';
+
+import {Component, Injectable, Output, EventEmitter} from '@angular/core';
 import { MonacoEditorConstructionOptions, 
          MonacoStandaloneCodeEditor } from '@materia-ui/ngx-monaco-editor';
 import { MonacoEditorModule } from 'ngx-monaco-editor-v2';
@@ -17,14 +17,14 @@ export class EditorComponent {
   output: string = '';
   error: string = '';
 
+  @Output() runEvent = new EventEmitter<string>();
+
   editorOptions: MonacoEditorConstructionOptions = {
     theme: 'vs-dark',
     language: 'python',
     automaticLayout: true,
     minimap: {enabled: false}
   };
-
-  constructor(private simulationService: SimulationService) {}
 
   onEditorInit(editor: MonacoStandaloneCodeEditor) {
     console.log('Monaco ready', editor);
@@ -34,23 +34,7 @@ export class EditorComponent {
     });
   };
 
-  run() {
-    this.simulationService.runPythonCode(this.code).subscribe({
-      next: (res) => {
-        this.output = res.output;
-        this.error = res.error;
-        if (this.output.length != 0) {
-          console.log(`Output: ${this.output}`);
-        }
-        if (this.error.length != 0) {
-          console.log(`Error: ${this.error}`);
-        }
-      },
-      error: (err) => {
-        this.output = '';
-        this.error = 'Server error: ' + JSON.stringify(err);
-        console.log(`Output: ${this.output}, Error: ${this.error}`);
-      }
-    });
+  sendCode() {
+    this.runEvent.emit(this.code);
   }
 }

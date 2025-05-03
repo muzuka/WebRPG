@@ -2,7 +2,7 @@
 
     <!-- TOP‐LEFT -->
     <div class="pane editor">
-      <editor-view></editor-view>
+      <editor-view (runEvent)="runGame($event)"></editor-view>
     </div>
   
     <!-- TOP‐RIGHT -->
@@ -12,7 +12,7 @@
   
     <!-- BOTTOM‐LEFT -->
     <div class="pane console">
-      <console-view></console-view>
+      <console-view [output]="output" [error]="error"></console-view>
     </div>
   
     <!-- BOTTOM‐RIGHT -->
